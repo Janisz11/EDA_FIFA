@@ -1,5 +1,6 @@
 from data_loader import load_data
 from feature_stats import compute_feature_stats
+from linear_regression import scatter_with_regression
 from violinplots import generate_violin_plots
 from histograms import generate_histograms
 from error_bars import generate_error_plots
@@ -33,5 +34,8 @@ def main():
 
     print("All plots generated and saved to 'plots/' folder.")
 
+    scatter_with_regression(df, "overall", "value_eur", reg_type="linear")
+    scatter_with_regression(df, "overall", "value_eur", reg_type="lowess")
+    scatter_with_regression(df, "overall", "value_eur", reg_type="log")
 if __name__ == "__main__":
     main()
